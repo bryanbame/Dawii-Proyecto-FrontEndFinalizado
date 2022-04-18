@@ -9,12 +9,12 @@ import { PaisService } from 'src/app/services/pais.service';
 })
 export class RegistraMarcaComponent implements OnInit {
 
-  lstPaises: Pais[] = [];
+  paises: Pais[] = [];
 
   constructor(private paisService:PaisService) { 
 
     this.paisService.listaPais().subscribe(
-      paises => this.lstPaises = paises
+      (x) => this.paises = x
     );
   }
 

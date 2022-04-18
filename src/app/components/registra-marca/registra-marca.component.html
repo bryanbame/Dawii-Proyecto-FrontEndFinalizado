@@ -19,45 +19,45 @@
 
 </head>  
 <body>
- <form class="formulario">
+ <form class="content">
     <h1>Registrar Marca</h1>
      <div class="form-row">
      
         <div class="form-group col-md-6">
-            <label for="inputCodigo">Marca</label>
+            <label for="inputMarca">Marca</label>
             <input class="form-control" type="text" placeholder="Ingresar Marca">     
         </div>
          
         <div class="form-group col-md-6">
-            <label for="inputCodigo">Descripcion</label>
+            <label for="inputDescripcion">Descripcion</label>
             <input class="form-control" type="text" placeholder="Ingresar Descripcion">         
         </div>
          
         <div class="form-group col-md-6">
-            <label for="inputCodigo">Fecha Registro</label>
+            <label for="inputFechaRegistro">Fecha Registro</label>
             <input class="form-control" type="date">        
         </div>
 
         <div class="form-group col-md-6">
-            <label for="inputCodigo">Fecha Vigencia</label>
+            <label for="inputFechaVigencia">Fecha Vigencia</label>
             <input class="form-control" type="date">        
         </div>
 
         <div class="form-group col-md-6">
-            <label for="inputCodigo">Certificado</label>
+            <label for="inputCertificado">Certificado</label>
             <input class="form-control" type="text" placeholder="Ingresar Certificado">         
         </div>
 
         <div class="form-group col-md-6">
-            <label for="inputCodigo">Estado</label>
+            <label for="inputEstado">Estado</label>
             <input class="form-control" type="text" placeholder="Ingresar Estado">         
         </div>
 
         <div class="form-group col-md-6">
-            <label for="inputCategoria">Pais</label>
+            <label for="inputPais">Pais</label>
             <select id="Pais" name="Pais" class="form-control">
               <option value="-1">Seleccione...</option>
-              <option *ngFor="let aux of lstPaises" value="{{aux.idPais}}">
+              <option *ngFor="let aux of paises" value="{{aux.idPais}}">
                 {{aux.nombre}}
               </option>
             </select>
