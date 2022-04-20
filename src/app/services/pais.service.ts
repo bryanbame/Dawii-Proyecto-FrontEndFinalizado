@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Pais } from '../models/pais.model';
 import { AppSettings } from '../app.settings';
 
+
 const baseUrlUtil = AppSettings.API_ENDPOINT+ 'util';
 
 @Injectable({
@@ -15,6 +16,7 @@ export class PaisService {
 
 
   listaPais():Observable<Pais[]>{
+    
     return this.http.get<Pais[]>(baseUrlUtil+"/listaPais");
   }
 }

@@ -5,7 +5,7 @@ import { Sede } from '../models/sede.model';
 import { AppSettings } from '../app.settings';
 
 const baseUrlUtil = AppSettings.API_ENDPOINT+ '/util';
-const baseUrlSede = AppSettings.API_ENDPOINT+ '/sede';
+const baseUrlSede = AppSettings.API_ENDPOINT+ 'sede';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +14,11 @@ export class SedeService {
 
   constructor(private http:HttpClient) { }
 
- 
+    insertaSede(data:Sede):Observable<any>{
+      return this.http.post(baseUrlSede, data);
+    }
+
+    
+
 
 }
