@@ -1,1 +1,69 @@
-<p>registra-marca works!</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title></title> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	
+
+</head>  
+<body>
+ <form class="content" (ngSubmit) = "insertandoMarca()" >
+    <h1>Registrar Marca</h1>
+     <div class="form-row">
+     
+        <div class="form-group col-md-6">
+            <label for="inputMarca">Marca</label>
+            <input class="form-control" type="text" id="nombre" name="nombre" placeholder="Ingresar Marca" [(ngModel)]="marca.nombre" />     
+        </div>
+         
+        <div class="form-group col-md-6">
+            <label for="inputDescripcion">Descripcion</label>
+            <input class="form-control" type="text" id="descripcion" name="descripcion" placeholder="Ingresar Descripcion" [(ngModel)]="marca.descripcion" />         
+        </div>
+         <!--
+        <div class="form-group col-md-6">
+            <label for="inputFechaRegistro">Fecha Registro</label>
+            <input class="form-control" type="date">        
+        </div>
+        -->
+        <div class="form-group col-md-6">
+            <label for="inputFechaVigencia">Fecha Vigencia</label>
+            <input class="form-control" type="date" id="fechaVigencia" name="fechaVigencia" [(ngModel)]="marca.fechaVigencia" />        
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="inputCertificado">Certificado</label>
+            <input class="form-control" type="text" id="certificado" name="certificado" placeholder="Ingresar Certificado" [(ngModel)]="marca.certificado" />         
+        </div>
+        <!--
+        <div class="form-group col-md-6">
+            <label for="inputEstado">Estado</label>
+            <input class="form-control" type="text" placeholder="Ingresar Estado">         
+        </div>
+        -->
+        <div class="form-group col-md-6">
+            <label for="inputPais">Pais</label>
+            <select id="Pais" name="Pais" class="form-control" [(ngModel)] = "marca.pais!.idPais">
+              <option value="-1">[Seleccione]</option>
+              <option *ngFor="let aux of paises" value="{{aux.idPais}}">
+                {{aux.nombre}}
+              </option>
+            </select>
+        </div>
+     </div>
+     <button type="submit" class="btn btn-primary">Registrar</button>
+</form>
+</body>
+</html>
