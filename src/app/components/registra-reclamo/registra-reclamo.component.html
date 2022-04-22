@@ -1,1 +1,36 @@
-<p>registra-reclamo works!</p>
+<form class="content" (ngSubmit) = "registrarReclamo()" >
+    <h1>Registrar Reclamo</h1>
+     <div class="form-row">
+     
+        <div class="form-group col-md-6">
+            <label for="inputdescripcion">Descripcion</label>
+            <input class="form-control" type="text" id="descripcion" name="descripcion" placeholder="Ingresar descripcion" [(ngModel)]="reclamo.descripcion" />     
+        </div>
+         
+        <div class="form-group col-md-6">
+            <label for="inputfechaCompra">Fecha Compra</label>
+            <input class="form-control" type="date" id="fechaCompra" name="fechaCompra" [(ngModel)]="reclamo.fechaCompra" />        
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="inputCliente">Cliente</label>
+            <select id="Cliente" name="Cliente" class="form-control" [(ngModel)] = "reclamo.cliente!.idCliente">
+              <option value="-1">[Seleccione]</option>
+              <option *ngFor="let aux of cliente" value="{{aux.idCliente}}">
+                {{aux.nombres}} {{aux.apellidos}}
+              </option>
+            </select>
+        </div>
+  
+        <div class="form-group col-md-6">
+            <label for="inputPais">Tipo Reclamo</label>
+            <select id="TipoReclamo" name="TipoReclamo" class="form-control" [(ngModel)] = "reclamo.tipoReclamo!.idTipoReclamo">
+              <option value="-1">[Seleccione]</option>
+              <option *ngFor="let aux of tReclamo" value="{{aux.idTipoReclamo}}">
+                {{aux.descripcion}}
+              </option>
+            </select>
+        </div>
+     </div>
+     <button type="submit" class="btn btn-primary">Registrar</button>
+</form>
