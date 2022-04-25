@@ -22,32 +22,28 @@ export class RegistraProductoComponent implements OnInit {
       idPais:-1
     }
 
-  };
+  }
 
-  constructor(private MarcaService:  MarcaService, private ProductoService:ProductoService) {
+  constructor(private ProductoService:ProductoService) {
 
-      /*this.(
-        (x) => this.productos = x
-      );*/
-   };
-
-   
-
-   cargaPais(){
-     console.log(">>> Carga Pais >> ");
-     console.log(">>> Departamento >> " +this.producto.marca?.idMarca);
-
-     
-
-
+      ProductoService.listarMarca().subscribe(x=>{
+        this.marcas=x;
+       });
+       ProductoService.listarPais().subscribe(x=>{
+         this.paises=x;
+       })
    }
+
 
    registraProducto(){
      this.ProductoService.registrar(this.producto).subscribe(
        response=>{
-         alert(response.men);
-       }
-     )
+         alert(response.mensaje);
+       },
+       error =>{
+        alert(error);
+      }
+     );
    }
 
   ngOnInit(): void {

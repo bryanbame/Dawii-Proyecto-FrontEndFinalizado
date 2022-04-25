@@ -21,6 +21,14 @@ export class ProductoService {
     return this.http.post(baseUrlProducto, data);
   }
 
+  listarMarca():Observable<any>{
+    return this.http.get(baseUrlUtil+"/listaMarca")
+  }
+
+  listarPais():Observable<any>{
+    return this.http.get(baseUrlUtil+"/listaPais")
+  }
+
 }
 
 
