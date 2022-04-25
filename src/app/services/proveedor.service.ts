@@ -15,5 +15,7 @@ export class ProveedorService {
 
   constructor(private http: HttpClient) { }
 
-  
+  registrar(data:Proveedor): Observable<any>{
+    return this.http.post(baseUrlProveedor, data);
+  }
 }
