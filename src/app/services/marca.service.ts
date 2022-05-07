@@ -4,8 +4,10 @@ import { Observable } from 'rxjs';
 import { AppSettings } from '../app.settings';
 import { Marca } from '../models/marca.model';
 
-const baseUrlUtil = AppSettings.API_ENDPOINT+ '/util';
-const baseUrlMarca = AppSettings.API_ENDPOINT+ '/marca';
+
+const baseUrlUtil = AppSettings.API_ENDPOINT+ 'util';
+const baseUrlMarca = AppSettings.API_ENDPOINT+ 'marca';
+
 
 @Injectable({
   providedIn: 'root',
@@ -20,6 +22,13 @@ export class MarcaService {
 
   insertaMarca(data:Marca): Observable<any>{
     return this.http.post(baseUrlMarca, data);
+  }
+
+  consultaMarca(nombre:string, descripcion:string, certificado:string, idPais:number):Observable<any>{
+    
+    const params = new HttpParams().set("nombre", nombre).set("descripcion", descripcion).set("certificado", certificado).set("idPais", idPais);
+
+    return this.http.get<any>(baseUrlMarca+"/porNombreDescCertPaisConParametros", {params});
   }
 
 }
