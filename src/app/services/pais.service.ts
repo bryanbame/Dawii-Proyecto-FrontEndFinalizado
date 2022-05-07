@@ -5,7 +5,7 @@ import { Pais } from '../models/pais.model';
 import { AppSettings } from '../app.settings';
 
 
-const baseUrlUtil = AppSettings.API_ENDPOINT+ 'util';
+const baseUrlUtil = AppSettings.API_ENDPOINT+ '/util';
 
 @Injectable({
   providedIn: 'root'

@@ -7,7 +7,7 @@ import { AppSettings } from '../app.settings';
 const baseUrlUtil = AppSettings.API_ENDPOINT+ '/util';
 const baseUrlProducto = AppSettings.API_ENDPOINT+ '/producto';
 
-
+const baseURL = "http://localhost:8090/url/producto";
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +16,18 @@ export class ProductoService {
 
   constructor(private http:HttpClient) { }
 
+
+  registrar(data:Producto):Observable<any>{
+    return this.http.post(baseUrlProducto, data);
+  }
+
+  listarMarca():Observable<any>{
+    return this.http.get(baseUrlUtil+"/listaMarca")
+  }
+
+  listarPais():Observable<any>{
+    return this.http.get(baseUrlUtil+"/listaPais")
+  }
 
 }
 

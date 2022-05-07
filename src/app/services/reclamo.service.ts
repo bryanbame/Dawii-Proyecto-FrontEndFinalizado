@@ -15,4 +15,17 @@ export class ReclamoService {
 
   constructor(private http:HttpClient) {   }
 
+
+  registrarReclamo(data:Reclamo): Observable<any>{
+    return this.http.post(baseUrlReclamo, data);
+  }
+
+
+  listarTipoReclamo():Observable<any>{
+    return this.http.get(baseUrlUtil+"/listaTipoReclamo")
+  }
+
+  listarCliente():Observable<any>{
+    return this.http.get(baseUrlUtil+"/listaCliente")
+  }
 }

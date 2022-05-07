@@ -9,4 +9,5 @@ export class Reclamo {
     fechaCompra?:Date;
     cliente?:Cliente;
     tipoReclamo?:TipoReclamo;
+    
 }
