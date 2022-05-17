@@ -16,6 +16,12 @@
                     <input type="text" class="form-control" name="descripcion" id="descripcion" [(ngModel)]="descripcion" />
                 </div>
                 <div class="col-lg-2">
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="estado" [(ngModel)]= "estado" checked  name="estado"/>
+                        <label class="custom-control-label" for="estado">Estado</label>
+                    </div>
+                </div>
+                <div class="col-lg-2">
                     <button class="btn btn-success">Filtrar</button>
                 </div>
             </div>

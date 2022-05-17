@@ -15,6 +15,7 @@ export class ConsultaMarcaComponent implements OnInit {
   descripcion:string="";
   certificado:string="";
   selPais:number=-1;
+  estado:boolean = true;
 
   paises: Pais[] = [];
 
@@ -28,7 +29,7 @@ export class ConsultaMarcaComponent implements OnInit {
   }
 
   consultaMarca(){
-    this.marcaService.consultaMarca(this.nombre,this.descripcion,this.certificado,this.selPais).subscribe(
+    this.marcaService.consultaMarca(this.nombre,this.descripcion,this.certificado,this.selPais, this.estado?1:0).subscribe(
       (x) => {
         this.marcas = x.lista;
         alert(x.mensaje);
