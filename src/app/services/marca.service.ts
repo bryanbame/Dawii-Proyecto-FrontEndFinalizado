@@ -24,9 +24,9 @@ export class MarcaService {
     return this.http.post(baseUrlMarca, data);
   }
 
-  consultaMarca(nombre:string, descripcion:string, certificado:string, idPais:number):Observable<any>{
+  consultaMarca(nombre:string, descripcion:string, certificado:string, idPais:number, estado:number):Observable<any>{
     
-    const params = new HttpParams().set("nombre", nombre).set("descripcion", descripcion).set("certificado", certificado).set("idPais", idPais);
+    const params = new HttpParams().set("nombre", nombre).set("descripcion", descripcion).set("certificado", certificado).set("idPais", idPais).set("estado", estado);
 
     return this.http.get<any>(baseUrlMarca+"/porNombreDescCertPaisConParametros", {params});
   }
