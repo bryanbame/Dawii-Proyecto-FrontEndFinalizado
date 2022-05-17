@@ -18,7 +18,10 @@ export class SedeService {
       return this.http.post(baseUrlSede, data);
     }
 
-    
+    consultaSede(nombre:string, direccion:string, estado:number, codigoPostal:string, idPais:number):Observable<any>{
+      const params = new HttpParams().set("nombre",nombre).set("direccion",direccion).set("estado",estado).set("codigoPostal",codigoPostal).set("idPais",idPais);
+      return this.http.get<any>(baseUrlSede+"/porNomDirEstPostPaisConParametros",{params});
+    }
 
 
 }
