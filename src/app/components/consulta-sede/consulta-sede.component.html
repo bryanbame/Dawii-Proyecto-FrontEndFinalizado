@@ -1,1 +1,86 @@
-<p>consulta-sede works!</p>
+<div>
+
+    <form class="content"  (submit) = "consultaSede()">
+
+
+    <div class="submit-form" >
+  
+         <div class="row">
+            <div class="col-lg-12" style="text-align: center;">
+                <h1>Consulta Sede</h1>
+            </div>
+        </div>
+  
+        <div class="row" style="margin-top: 4%">
+            <label for="dni" >Nombre</label>
+                <div class="col-lg-3">
+                    
+                    <input type="text" class="form-control" name="nombre" id="nombre"  [(ngModel)]= "nombre" />
+                </div>
+                <label for="dni" >Dirección</label>
+                <div class="col-lg-4">
+                    
+                    <input type="text" class="form-control" name="direccion" id="direccion"  [(ngModel)]= "direccion" />
+                </div>
+                <div class="col-lg-3">
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="estado" [(ngModel)]= "estado" checked  name="estado"/>
+                        <label class="custom-control-label" for="estado">Estado</label>
+                    </div>
+                </div>
+               
+         </div>
+
+         <div class="row" style="margin-top: 4%">
+            <label for="dni" >Código Postal</label>
+            <div class="col-lg-2">
+                <input type="text" class="form-control" name="codigoPostal" maxlength="5"  id="codigoPostal"  [(ngModel)]= "codigoPostal" />
+            </div>
+            <label for="pais">País</label>
+            <div class="col-lg-3">
+                <select id="pais" name="pais" class="form-control"  [(ngModel)]= "selPais" >
+                    
+                    <option value="-1">[Seleccione]</option>
+                    <option *ngFor="let aux of paises" value="{{aux.idPais}}"> {{aux.nombre}} </option>
+                    
+                </select> 
+            </div>
+            <div class="col-lg-4">
+                <button class="btn btn-success"  >Filtrar</button>
+            </div>
+    
+         </div>
+
+         <div class="row" style="margin-top: 3%">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Dirección</th>
+                            <th>Estado</th>
+                            <th>Fecha de Creación</th>
+                            <th>Fecha de Registro</th>
+                            <th>Código Postal</th>
+                            <th>País</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <tr *ngFor = "let aux of sedes" >
+                                 <td>{{ aux.idSede }}</td>   
+                                 <td>{{ aux.nombre }}</td>   
+                                 <td>{{ aux.direccion }}</td>   
+                                 <td>{{ aux.estado==1?'Activo':'Inactivo' }}</td>
+                                 <td>{{ aux.fechaCreacion }}</td> 
+                                 <td>{{ aux.fechaRegistro }}</td> 
+                                 <td>{{ aux.codigoPostal }}</td> 
+                                 <td>{{ aux.pais!.nombre }}</td> 
+                            </tr>
+                    </tbody>                   
+                </table>
+         </div>       
+        </div>
+     </form>
+  
+    </div>
+
