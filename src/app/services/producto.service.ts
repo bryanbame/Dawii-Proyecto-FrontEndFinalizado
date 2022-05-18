@@ -29,6 +29,13 @@ export class ProductoService {
     return this.http.get(baseUrlUtil+"/listaPais")
   }
 
+  consultaProducto(nombre:string, serie:string, idMarca:number, idPais:number, estado:number):Observable<any>{
+    
+    const params = new HttpParams().set("nombre", nombre).set("serie", serie).set("idMarca", idMarca).set("idPais", idPais).set("estado", estado);
+
+    return this.http.get<any>(baseUrlProducto+"/filtroProductop", {params});
+  }
+
 }
 
 
