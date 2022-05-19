@@ -12,10 +12,11 @@ import { PaisService } from 'src/app/services/pais.service';
 export class ConsultaMarcaComponent implements OnInit {
 
   nombre:string="";
-  descripcion:string="";
   certificado:string="";
   selPais:number=-1;
   estado:boolean = true;
+  fecInicio:string = ""; 
+  fecFin:string = "";
 
   paises: Pais[] = [];
 
@@ -29,7 +30,7 @@ export class ConsultaMarcaComponent implements OnInit {
   }
 
   consultaMarca(){
-    this.marcaService.consultaMarca(this.nombre,this.descripcion,this.certificado,this.selPais, this.estado?1:0).subscribe(
+    this.marcaService.consultaMarca(this.nombre,this.certificado,this.selPais, this.estado?1:0, this.fecInicio, this.fecFin).subscribe(
       (x) => {
         this.marcas = x.lista;
         alert(x.mensaje);

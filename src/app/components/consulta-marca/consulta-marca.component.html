@@ -11,10 +11,14 @@
                 <div class="col-lg-2">
                     <input type="text" class="form-control" name="nombre" id="nombre" [(ngModel)]="nombre" />
                 </div>
-                <label for="descripcion" class="col-lg-1">Descripcion</label>
+                <label for="certificado" class="col-lg-1">Certificado</label>
+                <div class="col-lg-2">
+                    <input type="text" class="form-control" name="certificado" id="certificado" [(ngModel)]="certificado" />
+                </div>
+                <!--<label for="descripcion" class="col-lg-1">Descripcion</label>
                 <div class="col-lg-2">
                     <input type="text" class="form-control" name="descripcion" id="descripcion" [(ngModel)]="descripcion" />
-                </div>
+                </div>-->
                 <div class="col-lg-2">
                     <div class="custom-control custom-switch">
                         <input type="checkbox" class="custom-control-input" id="estado" [(ngModel)]= "estado" checked  name="estado"/>
@@ -26,10 +30,17 @@
                 </div>
             </div>
             <div class="row" style="margin-top: 2%">
-                <label for="certificado" class="col-lg-1">Certificado</label>
+                <label for="dni" class="col-lg-1">Fecha Inicio</label>
                 <div class="col-lg-2">
-                    <input type="text" class="form-control" name="certificado" id="certificado" [(ngModel)]="certificado" />
+                    <input type="date" class="form-control" name="fecInicio" id="fecInicio"  [(ngModel)]= "fecInicio" />
                 </div>
+                <label for="dni" class="col-lg-1">Fecha Fin</label>
+                <div class="col-lg-2">
+                    <input type="date" class="form-control" name="fecFin" id="fecFin"  [(ngModel)]= "fecFin" />
+                </div>
+             </div>
+            <div class="row" style="margin-top: 2%">
+                
                 <label for="pais" class="col-lg-1">Pais</label>
                 <div class="col-lg-2">
                     <select id="pais" name="pais" class="form-control" [(ngModel)]="selPais">
