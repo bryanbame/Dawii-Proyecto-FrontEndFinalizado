@@ -1,1 +1,71 @@
-<p>consulta-reclamo works!</p>
+<div>
+    <form class="content" (submit) = "consultaReclamo()" >
+        <div class="submit-form" >
+         <div class="row">
+            <div class="col-lg-12">
+                <h2>Consulta Reclamos Usando Parámetros</h2>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 2%">
+                <label for="fechaRegistro" class="col-lg-1">Fecha de Registro:</label>
+                <div class="col-lg-5">
+                    <input type="text" class="form-control" name="fechaRegistro" id="fechaRegistro" [(ngModel)]="fechaRegistro"/>
+                </div>
+                <div class="col-lg-4" style="text-align: right;">
+                    <button class="btn btn-success btn-lg"  >FILTRAR</button>
+                </div>
+         </div>
+         <div class="row" style="margin-top: 1%">
+            <div class="col-lg-10"style="margin: 1%">
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="estado" checked [(ngModel)]="estado" name="estado">
+                    <label class="custom-control-label" for="estado">Estado</label>
+                </div>
+            </div>
+
+            <div class="col-lg-5">
+                <label for="cliente">Cliente:</label>
+                <select  id="cliente" name="cliente" class="form-control" [(ngModel)]="cboCliente" >
+                    <option value="0"> [Seleccione] </option>   
+                    <option *ngFor="let aux of clientes" value="{{aux.idCliente}}">
+                        {{aux.nombres+" "+aux.apellidos}}
+                    </option>
+                </select>
+            </div>
+            <div class="col-lg-5">
+                <label for="tipoReclamo">Tipo de Reclamo:</label>
+                <select  id="tipoReclamo" name="tipoReclamo" class="form-control" [(ngModel)]="cboTipo" >
+                    <option value="0"> [Seleccione] </option>   
+                    <option *ngFor="let aux of tipoReclamos" value="{{aux.idTipoReclamo}}">
+                        {{aux.descripcion}}
+                    </option>
+                </select>
+            </div>
+        </div>
+         <div class="row" style="margin-top: 3%">
+                <table class="table table-hover">
+                    <thead>
+                        <tr style="font-weight: bold;font-size: 20px;text-align: center;">
+                            <th>ID</th>
+                            <th>Descripción</th>
+                            <th>Fecha Registro</th>
+                            <th>Cliente</th>
+                            <th>Tipo Reclamo</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor= "let aux of listaReclamos" style="text-align: center;">
+                            <td>{{ aux.idReclamo }}</td>
+                            <td>{{ aux.descripcion }}</td>
+                            <td>{{ aux.fechaRegistro }}</td>
+                            <td>{{ aux.cliente?.nombres }} {{ aux.cliente?.apellidos}} </td>
+                            <td>{{ aux.tipoReclamo?.descripcion }} </td>
+                            <td>{{ aux.estado==1 ? "Activo":"Inactivo"}}</td>
+                        </tr>        
+                    </tbody>
+                </table>
+         </div>
+        </div>
+     </form>
+    </div>

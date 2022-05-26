@@ -28,4 +28,13 @@ export class ReclamoService {
   listarCliente():Observable<any>{
     return this.http.get(baseUrlUtil+"/listaCliente")
   }
+
+  consultaReclamo(fec:string, cli:number, tip:number, est:number): Observable<any>{
+    const params= new HttpParams()
+    .set("fechaRegistro", fec)
+    .set("idCliente", cli)
+    .set("idTipoReclamo", tip)
+    .set("estado", est);
+    return this.http.get(baseUrlReclamo +"/ConsultaReclamoConParametros",{params})
+  }
 }
