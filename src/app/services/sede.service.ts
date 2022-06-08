@@ -6,6 +6,7 @@ import { AppSettings } from '../app.settings';
 
 const baseUrlUtil = AppSettings.API_ENDPOINT+ '/util';
 const baseUrlSede = AppSettings.API_ENDPOINT+ '/sede';
+const baseUrlSede2 = AppSettings.API_ENDPOINT+ '/crudSede';
 
 @Injectable({
   providedIn: 'root'
@@ -23,5 +24,19 @@ export class SedeService {
       return this.http.get<any>(baseUrlSede+"/porNomDirEstPostPaisConParametros",{params});
     }
 
+    listaSede(filtro:string): Observable<Sede[]>{
+      return this.http.get<Sede[]>(baseUrlSede2+"/listaSedePorNombreLike/"+filtro);
+    }
 
+    registraSede(aux:Sede):Observable<any>{
+      return this.http.post<any>(baseUrlSede2+"/registraSede", aux);
+    }
+
+    actualizaSede(aux:Sede):Observable<any>{
+      return this.http.put<any>(baseUrlSede2+"/actualizaSede", aux);
+    }
+
+    eliminaSede(id: any):Observable<any>{
+      return this.http.delete(baseUrlSede2+"/eliminaSede/"+ id);
+    }
 }
