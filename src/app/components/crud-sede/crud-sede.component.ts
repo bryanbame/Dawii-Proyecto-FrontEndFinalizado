@@ -30,20 +30,20 @@ export class CrudSedeComponent implements OnInit {
 
   //Declaracion de validaciones
   //formsRegistra = new FormGroup({
-   // validaNombre: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]{3,30}')]),
+  //  validaNombre: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]{3,30}')]),
    // validaDireccion: new FormControl('', [Validators.required,Validators.pattern('[a-zA-Z ]{3,30}')]),
-    //validaFecha: new FormControl('', [Validators.required, Validators.pattern('(0[1-9]|1[1-9]|4[1-9])\/(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])')]),
+   // validaFecha: new FormControl('', [Validators.required]),
    // validaCodigoPostal: new FormControl('', [Validators.required,Validators.pattern('[0-9]{5}')]),
-   // validaPais: new FormControl('', [Validators.min(1)]),
-  //});
+  //  validaPais: new FormControl('', [Validators.min(1)]),
+ // });
    //Declaracion de validaciones
-   //formsActualiza = new FormGroup({
-   // validaNombre: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]{3,30}')]),
-   // validaDireccion: new FormControl('', [Validators.required,Validators.pattern('[a-zA-Z ]{3,30}')]),
-    //validaFecha: new FormControl('', [Validators.required, Validators.pattern('(0[1-9]|1[1-9]|4[1-9])\/(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])')]),
-    //validaCodigoPostal: new FormControl('', [Validators.required,Validators.pattern('[0-9]{5}')]),
+ //  formsActualiza = new FormGroup({
+  // validaNombre: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]{3,30}')]),
+  // validaDireccion: new FormControl('', [Validators.required,Validators.pattern('[a-zA-Z ]{3,30}')]),
+  //  validaFecha: new FormControl('', [Validators.required]),
+  //  validaCodigoPostal: new FormControl('', [Validators.required,Validators.pattern('[0-9]{5}')]),
    // validaPais: new FormControl('', [Validators.min(1)]),
-    //validaEstado: new FormControl('', [Validators.min(1)]),
+   // validaEstado: new FormControl('', [Validators.min(1)]),
   //});
 
   //para verificar que pulsa el boton
@@ -74,13 +74,14 @@ constructor(private paisService:PaisService, private sedeService:SedeService) {
   }
 
   registra(){
-  //  this.submitted = true;
-    //finaliza el metodo si hay un error
-   //if (this.forms.invalid){
-    //return;
-  // }
+    //this.submitted = true;
+     //finaliza el método si hay un error
+    // if (this.formsRegistra.invalid) {
+    //  return;
+    //}
         this.sedeService.registraSede(this.sede).subscribe(
               (x) => {
+                document.getElementById("btn_reg_limpiar")?.click(); //16-06
                 document.getElementById("btn_reg_cerrar")?.click();
                 Swal.fire({
                   position: 'center',
@@ -92,7 +93,7 @@ constructor(private paisService:PaisService, private sedeService:SedeService) {
                 this.sedeService.listaSede(this.filtro==""?"todos":this.filtro).subscribe(
                         (x) => this.sedes = x
                 );
-              //  this.submitted = false;
+
               } 
         );
 
@@ -122,12 +123,14 @@ constructor(private paisService:PaisService, private sedeService:SedeService) {
 
 actualiza(){
   //this.submitted = true;
-  //finaliza el metodo si hay un error
- // if (this.formsRegistra.invalid){
- //  return;
- //}
+
+    //finaliza el método si hay un error
+  //  if (this.formsActualiza.invalid) {
+   //   return;
+  //  }
         this.sedeService.actualizaSede(this.sede).subscribe(
               (x) => {
+                document.getElementById("btn_act_limpiar")?.click();
                 document.getElementById("btn_act_cerrar")?.click();
                 Swal.fire({
                   position: 'center',
