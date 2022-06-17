@@ -107,13 +107,18 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
-                                        <label for="id_reg_direccion">Fecha de Creación</label>
-                                        <input  type="date" placeholder="Ingrese dirección" class="form-control" name="fechaCreacion" id="id_reg_fechaCreacion" maxlength="2" />
+                                        <label for="id_reg_fechaCreacion">Fecha de Creación</label>
+                                        <input  type="date" class="form-control" name="fechaCreacion" id="id_reg_fechaCreacion" [(ngModel)] = "sede.fechaCreacion" #validaFecha="ngModel" required/>
+                                        <div *ngIf="validaFecha.invalid && (validaFecha.dirty || validaFecha.touched)" class="alert alert-danger">
+                                            <div *ngIf="validaFecha.errors!required">
+                                                El código postal es obligatorio.
+                                            </div>                     
+                                        </div>
                                     </div>                                  
                                 </div>
                                 <div class="row" style="margin-top: 4%">                                                    
                                     <div class="col-lg-3">
-                                        <label for="id_reg_direccion">Código Postal</label>
+                                        <label for="id_reg_codigo_postal">Código Postal</label>
                                         <input [(ngModel)]="sede.codigoPostal" type="text" placeholder="Ingrese código postal" class="form-control" name="codigoPostal" id="id_reg_codigo_postal"  #validaCodigoPostal="ngModel" required pattern="[0-9]{5}" maxlength="5"/><!--#validaCodigoPostal="ngModel" required pattern="[0-9]{5}"--->
                                          <div *ngIf="validaCodigoPostal.invalid && (validaCodigoPostal.dirty || validaCodigoPostal.touched)" class="alert alert-danger">
                                             <div *ngIf="validaCodigoPostal.errors!required">
@@ -125,8 +130,8 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
-                                            <label for="pais">País</label>
-                                            <select [(ngModel)] = "sede.pais!.idPais"   class="form-control" name="pais" #validaPais="ngModel" id="id_reg_pais" required pattern="[0-9]{1,4}"> <!--#validaPais="ngModel" required--->
+                                            <label for="id_reg_pais">País</label>
+                                            <select [(ngModel)] = "sede.pais!.idPais"   id="id_reg_pais"  name="pais" class="form-control" #validaPais="ngModel" required pattern="[0-9]{1,4}"> <!--#validaPais="ngModel" required--->
                                                 <option value="-1"> [Seleccione] </option>   
                                                 <option *ngFor="let aux of paises" value="{{aux.idPais}}">
                                                     {{aux.nombre}}
@@ -141,6 +146,7 @@
                         </div> 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn_reg_cerrar" style="width: 100px;">Close</button>
+                            <button type="reset" class="btn btn-secondary" id="btn_reg_limpiar" style="width: 100px;">Limpiar</button>
                             <div class="form-group text-center">
                                 <div class="col-lg-12">
                                     <button id="id_reg_registra" class="btn btn-success form-control" style="width: 100px;" [disabled]="!registraForm.form.valid">Registrar</button> <!---[disabled]="!registraForm.form.valid"-->
@@ -186,7 +192,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-5">
-                                    <label for="id_act_dni">Dirección</label>
+                                    <label for="id_act_direccion">Dirección</label>
                                     <input [(ngModel)]="sede.direccion"  type="text" placeholder="Ingrese dirección" class="form-control" name="direccion" id="id_act_direccion"  #validaNombre="ngModel" required pattern="[a-zA-Z ]{3,30}" maxlength="30"/>
                                     <div *ngIf="validaDireccion.invalid && (validaDireccion.dirty || validaDireccion.touched)" class="alert alert-danger">
                                         <div *ngIf="validaDireccion.errors!required">
@@ -218,12 +224,17 @@
                             <div class="row" style="margin-top: 4%">           
            
                                 <div class="col-lg-3">
-                                        <label for="fechaCreacion">Fecha de Creación</label>
-                                        <input type="date" class="form-control" name="fechaCreacion" id="fechaCreacion" maxlength="2"   [(ngModel)] = "sede.fechaCreacion" />
+                                        <label for="id_act_fechaCreacion">Fecha de Creación</label>
+                                        <input type="date" class="form-control" name="fechaCreacion" id="id_act_fechaCreacion" maxlength="2"   [(ngModel)] = "sede.fechaCreacion" #validaFecha="ngModel" required/>
+                                        <div *ngIf="validaFecha.invalid && (validaFecha.dirty || validaFecha.touched)" class="alert alert-danger">
+                                            <div *ngIf="validaFecha.errors!required">
+                                                El código postal es obligatorio.
+                                            </div>                     
+                                        </div>
                                 </div>
                                 <div class="col-lg-3">
-                                    <label for="codigoPostal">Código Postal</label>
-                                    <input type="text"  placeholder="Ingrese código postal" class="form-control" id="codigoPostal"  name="codigoPostal" maxlength="5"  [(ngModel)] = "sede.codigoPostal" #validaCodigoPostal="ngModel" required pattern="[0-9]{5}" maxlength="5" />
+                                    <label for="id_act_codigoPostal">Código Postal</label>
+                                    <input type="text"  placeholder="Ingrese código postal" class="form-control" id="id_act_codigoPostal"  name="codigoPostal" maxlength="5"  [(ngModel)] = "sede.codigoPostal" #validaCodigoPostal="ngModel" required pattern="[0-9]{5}" maxlength="5" />
                                     <div *ngIf="validaCodigoPostal.invalid && (validaCodigoPostal.dirty || validaCodigoPostal.touched)" class="alert alert-danger">
                                         <div *ngIf="validaCodigoPostal.errors!required">
                                             El código postal es obligatorio.
@@ -235,8 +246,8 @@
                                 </div>       
                                   
                                 <div class="col-lg-3">
-                                        <label for="pais">País</label>
-                                        <select  id="pais" name="pais" class="form-control" [(ngModel)] = "sede.pais!.idPais" #validaPais="ngModel" required pattern="[0-9]{1,4}">
+                                        <label for="id_act_pais">País</label>
+                                        <select  id="id_act_pais" name="pais" class="form-control" [(ngModel)] = "sede.pais!.idPais" #validaPais="ngModel" required pattern="[0-9]{1,4}">
                                             <option value="-1"> [Seleccione] </option>   
                                             <option *ngFor="let aux of paises" value="{{aux.idPais}}">
                                                 {{aux.nombre}}
@@ -250,7 +261,8 @@
                         </div>
 
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn_act_cerrar">Close</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn_act_cerrar" style="width: 100px;">Close</button>
+                            <button type="reset" class="btn btn-secondary" id="btn_act_limpiar" style="width: 100px;">Limpiar</button>
                             <div class="form-group text-center">
                                 <div class="col-lg-12">
                                     <button id="id_act_actualiza" class="btn btn-success form-control" >Actualizar</button>
