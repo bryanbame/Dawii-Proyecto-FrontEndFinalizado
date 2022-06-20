@@ -39,7 +39,7 @@ export class CrudMarcaComponent implements OnInit {
     validaCertificado: new FormControl('', [Validators.required, Validators.pattern('[S][0-9]{8}')]),
     validaFechaVigencia: new FormControl('',[Validators.required]),
     validaPais: new FormControl('', [Validators.min(1)]),
-    validaEstado: new FormControl('', [Validators.min(1)]),
+    validaEstado: new FormControl('', [Validators.min(0)]),
   });
 
   //para verificar que e pulsó el boton

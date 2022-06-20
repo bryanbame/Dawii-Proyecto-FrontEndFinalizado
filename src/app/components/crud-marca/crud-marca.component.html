@@ -7,7 +7,7 @@
         <div class="row" style="height: 80px">
             <div class="col-md-4">
                 <input [(ngModel)]="filtro" class="form-control" id="id_txt_filtro" name="filtro"
-                    placeholder="Ingrese el nombre" type="text" maxlength="30" />
+                    placeholder="Ingresar Nombre" type="text" maxlength="30" />
             </div>
             <div class="col-md-2">
                 <button type="button" class="btn btn-primary" id="id_btn_filtrar" style="width: 150px"
@@ -26,14 +26,14 @@
                     <table id="id_table" class="table table-striped table-bordered">
                         <thead>
                             <tr>
-                                <th>Codigo</th>
+                                <th>Código</th>
                                 <th>Nombre</th>
-                                <th>Descripcion</th>
+                                <th>Descripción</th>
                                 <th>Fecha de Registro</th>
                                 <th>Fecha de Vigencia</th>
                                 <th>Certificado</th>
                                 <th>Estado</th>
-                                <th>Pais</th>
+                                <th>País</th>
                                 <th></th>
                                 <th></th>
                             </tr>
@@ -109,7 +109,7 @@
                                 </div>
 
                                 <div class="col-lg-6">
-                                    <label for="descripcion">Descripcion</label>
+                                    <label for="descripcion">Descripción</label>
                                     <input formControlName="validaDescripcion" [(ngModel)]="marca.descripcion"
                                         type="text" placeholder="Ingrese Descripcion" class="form-control"
                                         name="descripcion" id="descripcion" />
@@ -117,8 +117,8 @@
                                     <div *ngIf="submitted && formsRegistraMarca.controls['validaDescripcion'].errors"
                                         class="invalid">
                                         <ul>
-                                            <li>La Descripcion es obligatoria</li>
-                                            <li>La Descripcion es de 3 a 50 caracteres</li>
+                                            <li>La Descripción es obligatoria</li>
+                                            <li>La Descripción es de 3 a 50 caracteres</li>
                                         </ul>
                                     </div>
 
@@ -150,7 +150,7 @@
                                         class="invalid">
                                         <ul>
                                             <li>El Certificado es obligatorio</li>
-                                            <li>El Certificado es S y de 8 digitos</li>
+                                            <li>El Certificado es S y de 8 dígitos</li>
                                         </ul>
                                     </div>
 
@@ -158,7 +158,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-4">
-                                    <label for="id_reg_distrito">Pais</label>
+                                    <label for="id_reg_distrito">País</label>
                                     <select formControlName="validaPais" [(ngModel)]="marca.pais!.idPais"
                                         id="id_reg_distrito" name="Pais" class="form-control">
                                         <option value="-1"> [Seleccione] </option>
@@ -170,7 +170,7 @@
                                     <div *ngIf="submitted && formsRegistraMarca.controls['validaPais'].errors"
                                         class="invalid">
                                         <ul>
-                                            <li>El Pais es obligatorio</li>
+                                            <li>El País es obligatorio</li>
                                         </ul>
                                     </div>
 
@@ -230,7 +230,7 @@
                                 </div>
 
                                 <div class="col-lg-6">
-                                    <label for="id_reg_dni">Descripcion</label>
+                                    <label for="id_reg_dni">Descripción</label>
                                     <input formControlName="validaDescripcion" [(ngModel)]="marca.descripcion"
                                         type="text" placeholder="Ingrese Descripcion" class="form-control" name="dni"
                                         id="id_reg_dni" />
@@ -238,8 +238,8 @@
                                     <div *ngIf="submitted && formsActualizaMarca.controls['validaDescripcion'].errors"
                                         class="invalid">
                                         <ul>
-                                            <li>La Descripcion es obligatoria</li>
-                                            <li>La Descripcion es de 3 a 50 dígitos</li>
+                                            <li>La Descripción es obligatoria</li>
+                                            <li>La Descripción es de 3 a 50 dígitos</li>
                                         </ul>
                                     </div>
 
@@ -270,7 +270,7 @@
                                         class="invalid">
                                         <ul>
                                             <li>El Certificado es obligatorio</li>
-                                            <li>El Certificado es S y de 8 digitos</li>
+                                            <li>El Certificado es S y de 8 dígitos</li>
                                         </ul>
                                     </div>
 
@@ -308,7 +308,7 @@
                                 </div>
 
                                 <div class="col-lg-4">
-                                    <label for="id_reg_distrito">Pais</label>
+                                    <label for="id_reg_distrito">País</label>
                                     <select formControlName="validaPais" [(ngModel)]="marca.pais!.idPais"
                                         id="id_reg_distrito" name="Pais" class="form-control">
                                         <option value="-1"> [Seleccione] </option>
@@ -320,7 +320,7 @@
                                     <div *ngIf="submitted && formsActualizaMarca.controls['validaPais'].errors"
                                         class="invalid">
                                         <ul>
-                                            <li>El Pais es obligatorio</li>
+                                            <li>El País es obligatorio</li>
                                         </ul>
                                     </div>
 
