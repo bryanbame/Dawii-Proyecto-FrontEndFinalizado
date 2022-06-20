@@ -33,8 +33,8 @@
         </div>
          
         <div class="form-group col-md-6">
-            <label for="inputDescripcion">Descripcion</label>
-            <input class="form-control" type="text" id="descripcion" name="descripcion" placeholder="Ingresar Descripcion" [(ngModel)]="marca.descripcion" />         
+            <label for="inputDescripcion">Descripción</label>
+            <input class="form-control" type="text" id="descripcion" name="descripcion" placeholder="Ingresar Descripción" [(ngModel)]="marca.descripcion" />         
         </div>
          <!--
         <div class="form-group col-md-6">
@@ -58,7 +58,7 @@
         </div>
         -->
         <div class="form-group col-md-6">
-            <label for="inputPais">Pais</label>
+            <label for="inputPais">País</label>
             <select id="Pais" name="Pais" class="form-control" [(ngModel)] = "marca.pais!.idPais">
               <option value="-1">[Seleccione]</option>
               <option *ngFor="let aux of paises" value="{{aux.idPais}}">
