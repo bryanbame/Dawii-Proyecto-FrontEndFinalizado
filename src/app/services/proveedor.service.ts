@@ -25,4 +25,19 @@ export class ProveedorService {
  }
    //fin , String ruc, int idUbigeo,String contacto, int estado
 
+   //Grud de proveedor
+   listaProveedorgrud(filtro:string):Observable<Proveedor[]> {
+    return this.http.get<Proveedor[]>(baseUrlProveedor + "/listaProveedorPorRazonLike/"+ filtro);
+  }  
+  registraProveedor(obj: Proveedor): Observable<any>{
+    return this.http.post(baseUrlProveedor+ "/registraProveedor", obj);
+ }
+ actualizaProveedor(obj: Proveedor): Observable<any>{
+  return this.http.put(baseUrlProveedor + "/actualizaProveedor", obj);
+ }
+  eliminaProveedor(id: any): Observable<any>{
+  return this.http.delete(baseUrlProveedor + "/eliminaProveedor/" + id);
+}
+   //fin 
+
 }
