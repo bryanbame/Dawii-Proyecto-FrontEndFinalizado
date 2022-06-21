@@ -39,31 +39,31 @@ export class CrudProveedorComponent implements OnInit {
       distrito: "-1",
     }
   };
-  //-----------
-  formsRegistra = new FormGroup({
-    validaRazonsocial : new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z0-9 ]{3,50}')]),
-      validaRuc : new FormControl('', [Validators.required, Validators.pattern('^[0-9]{11}$')]),
-     validaDireccion: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(30),Validators.pattern('[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ0-9.# ]{3,30}')]),
-       validaTelefono : new FormControl('', [Validators.required, Validators.pattern('^[0-9]{6}$')]),
-      validaCelular : new FormControl('', [Validators.required, Validators.pattern('^[0-9]{9}$')]),
-       validacontacto : new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]{3,30}')]),
-       validaDepartamento: new FormControl('', [Validators.min(1)]),
-      validaProvincia: new FormControl('', [Validators.min(1)]),
-      validaDistrito: new FormControl('', [Validators.min(1)]),
-    });
-  
-   formsActualiza = new FormGroup({
-    validaRazonsocial : new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z0-9 ]{3,50}')]),
+ 
+ formsRegistraProveedor = new FormGroup({
+  validaRazonsocial : new FormControl('', [Validators.required, Validators.pattern('[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ ]{3,50}')]),
     validaRuc : new FormControl('', [Validators.required, Validators.pattern('^[0-9]{11}$')]),
-    validaDireccion: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(30),Validators.pattern('[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ0-9.# ]{3,30}')]),
-    validaTelefono : new FormControl('', [Validators.required, Validators.pattern('^[0-9]{6}$')]),
-     validaCelular : new FormControl('', [Validators.required, Validators.pattern('^[0-9]{9}$')]),
+   validaDireccion: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(30),Validators.pattern('[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ0-9.# ]{3,30}')]),
+     validaTelefono : new FormControl('', [Validators.required, Validators.pattern('^[0-9]{6}$')]),
+    validaCelular : new FormControl('', [Validators.required, Validators.pattern('^[0-9]{9}$')]),
      validacontacto : new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]{3,30}')]),
-    validaDepartamento: new FormControl('', [Validators.min(1)]),
+     validaDepartamento: new FormControl('', [Validators.min(1)]),
     validaProvincia: new FormControl('', [Validators.min(1)]),
-     validaDistrito: new FormControl('', [Validators.min(1)]),
-     validaEstado: new FormControl('', [Validators.min(0)]),
-     });
+    validaDistrito: new FormControl('', [Validators.min(1)]),
+  });
+
+ formsActualizaProveedor = new FormGroup({
+  validaRazonsocial : new FormControl('', [Validators.required, Validators.pattern('[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ ]{3,50}')]),
+  validaRuc : new FormControl('', [Validators.required, Validators.pattern('^[0-9]{11}$')]),
+  validaDireccion: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(30),Validators.pattern('[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ0-9.# ]{3,30}')]),
+  validaTelefono : new FormControl('', [Validators.required, Validators.pattern('^[0-9]{6}$')]),
+   validaCelular : new FormControl('', [Validators.required, Validators.pattern('^[0-9]{9}$')]),
+   validacontacto : new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]{3,30}')]),
+  validaDepartamento: new FormControl('', [Validators.min(1)]),
+  validaProvincia: new FormControl('', [Validators.min(1)]),
+   validaDistrito: new FormControl('', [Validators.min(1)]),
+   validaEstado: new FormControl('', [Validators.min(0)]),
+   });
 //--------------
   submitted = false;
   //---------------
@@ -93,6 +93,7 @@ export class CrudProveedorComponent implements OnInit {
   }
   //----
   consulta() {
+    
     this.proveedorService.listaProveedorgrud(this.filtro == "" ? "todos" : this.filtro).subscribe(
       (x) => this.proveedores = x
     );
@@ -109,9 +110,9 @@ export class CrudProveedorComponent implements OnInit {
     this.submitted = true;
 
     //finaliza el método si hay un error
-    // if (this.formsRegistra.invalid) {
-    //   return;
-    // }
+    if (this.formsRegistraProveedor.invalid) {
+      return;
+     }
 
     this.submitted = false;
 
@@ -122,7 +123,8 @@ export class CrudProveedorComponent implements OnInit {
         this.proveedorService.listaProveedorgrud(this.filtro == "" ? "todos" : this.filtro).subscribe(
           (x) => this.proveedores = x
         );
-
+        //this.submitted = false;
+        //alert(x.mensaje);
       }
     );
 
@@ -168,21 +170,24 @@ export class CrudProveedorComponent implements OnInit {
     this.submitted = true;
 
     //finaliza el método si hay un error
-    // if (this.formsActualiza.invalid) {
-    //   return;
-    // }
+     if (this.formsActualizaProveedor.invalid) {
+      return;
+     }
 
     this.submitted = false;
 
     this.proveedorService.actualizaProveedor(this.proveedor).subscribe(
       (x) => {
         document.getElementById("btn_act_cerrar")?.click();
-        Swal.fire('Mensaje', x.mensaje, 'success');
+       Swal.fire('Mensaje', x.mensaje, 'success');
         this.proveedorService.listaProveedorgrud(this.filtro == "" ? "todos" : this.filtro).subscribe(
           (x) => this.proveedores = x
         );
+
+       // this.submitted = false;
+//alert(x.mensaje);
       }
-    );
+);
 
     //limpiar los comobobox
     this.distritos = [];

@@ -27,16 +27,17 @@
                         <thead>
                             <tr>
                                 <th style="width: 5%">#</th>
-                                <th style="width: 30%">Razón social</th>
+                                <th style="width: 30%">Razon social</th>
                                 <th style="width: 20%">Ruc</th>
-                                <th style="width: 20%">Dirección</th>
-                                <th style="width: 20%">Teléfono</th>
+                                <th style="width: 20%">Direccion</th>
+                                <th style="width: 20%">Telefono</th>
                                 <th style="width: 20%">Celular</th>
                                 <th style="width: 20%">Contacto</th>
                                 <th style="width: 20%">Estado</th>
                                 <th style="width: 31%">Ubigeo</th>
                                 <th style="width: 7%"></th>
-                                <th style="width: 7%"></th>
+                                <th style="width: 7%">Actualizar</th>
+                                <th style="width: 7%">Elimanar</th>
 
                             </tr>
                         </thead>
@@ -89,18 +90,18 @@
                 </div>
 
                 <div class="modal-body">
-                    <form class="content" (ngSubmit)="registra()"  [formGroup]="formsRegistra">
+                    <form class="content" (ngSubmit)="registra()"  [formGroup]="formsRegistraProveedor">
                         <div class="submit-form">
 
 
                             <div class="row">
                               <div class="col-lg-4">
-                                <label for="id_reg_razon">Razón Social</label>
-                                <input  formControlName="validaRazonsocial" [(ngModel)]="proveedor.razonsocial" type="text" placeholder="Ingrese el razón" class="form-control" name="razonsocial" id="id_reg_razon" />
-                                <div *ngIf="submitted && formsRegistra.controls['validaRazonsocial'].errors" class="invalid">       
+                                <label for="id_reg_razon">Razon Social</label>
+                                <input  formControlName="validaRazonsocial" [(ngModel)]="proveedor.razonsocial" type="text" placeholder="Ingrese el razon" class="form-control" name="razonsocial" id="id_reg_razon" />
+                                <div *ngIf="submitted && formsRegistraProveedor.controls['validaRazonsocial'].errors" class="invalid">       
                                     <ul>
-                                        <li>La Razón social es obligatorio</li>    
-                                        <li>La Razón social es de 3 a 30 caracteres</li>    
+                                        <li>La Razon social es obligatorio</li>    
+                                        <li>La Razon social es de 3 a 30 caracteres</li>    
                                     </ul>
                                 </div>
                              </div>
@@ -108,7 +109,7 @@
                              <div class="col-lg-4">
                                 <label for="id_reg_ruc">Ruc</label>
                                 <input  formControlName="validaRuc" [(ngModel)]="proveedor.ruc" type="text" placeholder="Ingrese el ruc" class="form-control" name="ruc" id="id_reg_ruc" />
-                                <div *ngIf="submitted && formsRegistra.controls['validaRuc'].errors" class="invalid">       
+                                <div *ngIf="submitted && formsRegistraProveedor.controls['validaRuc'].errors" class="invalid">       
                                     <ul>
                                         <li>El ruc es obligatorio</li>    
                                         <li>El ruc  es de 11 digitos</li>    
@@ -118,29 +119,29 @@
                             </div>
                             <div class="row">
                              <div class="col-lg-4">
-                                <label for="id_reg_direccion">Dirección</label>
-                                <input  formControlName="validaDireccion" [(ngModel)]="proveedor.direccion" type="text" placeholder="Ingrese Dirección" class="form-control" name="direccion" id="id_reg_direccion" />
-                                <div *ngIf="submitted && formsRegistra.controls['validaDireccion'].errors" class="invalid">       
+                                <label for="id_reg_direccion">Direccion</label>
+                                <input  formControlName="validaDireccion" [(ngModel)]="proveedor.direccion" type="text" placeholder="Ingrese Direccion" class="form-control" name="direccion" id="id_reg_direccion" />
+                                <div *ngIf="submitted && formsRegistraProveedor.controls['validaDireccion'].errors" class="invalid">       
                                     <ul>
-                                        <li>La dirección es obligatorio</li>    
-                                        <li>La dirección es de 3 a 30 caracteres</li>    
+                                        <li>La direccion es obligatorio</li>    
+                                        <li>La direccion es de 3 a 30 caracteres</li>    
                                     </ul>
                                 </div>
                              </div>
                              <div class="col-lg-4">
-                                <label for="id_reg_telefono">Teléfono</label>
-                                <input  formControlName="validaTelefono" [(ngModel)]="proveedor.telefono" type="text" placeholder="Ingrese Teléfono  " class="form-control" name="telefono" id="id_reg_telefono" />
-                                <div *ngIf="submitted && formsRegistra.controls['validaTelefono'].errors" class="invalid">       
+                                <label for="id_reg_telefono">Telefono</label>
+                                <input  formControlName="validaTelefono" [(ngModel)]="proveedor.telefono" type="text" placeholder="Ingrese Telefono" class="form-control" name="telefono" id="id_reg_telefono" />
+                                <div *ngIf="submitted && formsRegistraProveedor.controls['validaTelefono'].errors" class="invalid">       
                                     <ul>
-                                        <li>El Teléfono  es obligatorio</li>    
-                                        <li>El Teléfono  es de 6 digitos</li>    
+                                        <li>El Telefono es obligatorio</li>    
+                                        <li>El Telefono es de 6 digitos</li>    
                                     </ul>
                                 </div>
                              </div>
                              <div class="col-lg-4">
                                 <label for="id_reg_celular">Celular</label>
                                 <input  formControlName="validaCelular" [(ngModel)]="proveedor.celular" type="text" placeholder="Ingrese Celular" class="form-control" name="celular" id="id_reg_celular" />
-                                <div *ngIf="submitted && formsRegistra.controls['validaCelular'].errors" class="invalid">       
+                                <div *ngIf="submitted && formsRegistraProveedor.controls['validaCelular'].errors" class="invalid">       
                                     <ul>
                                         <li>El Celular es obligatorio</li>    
                                         <li>El Celular es de 9 digitos</li>    
@@ -150,7 +151,7 @@
                              <div class="col-lg-4">
                                 <label for="id_reg_contacto">Contacto</label>
                                 <input  formControlName="validacontacto" [(ngModel)]="proveedor.contacto" type="text" placeholder="Ingrese Contacto" class="form-control" name="contacto" id="id_reg_contacto" />
-                                <div *ngIf="submitted && formsRegistra.controls['validacontacto'].errors" class="invalid">       
+                                <div *ngIf="submitted && formsRegistraProveedor.controls['validacontacto'].errors" class="invalid">       
                                     <ul>
                                         <li>El Contacto es obligatorio</li>    
                                         <li>El Contacto es de 3 a 30 caracteres</li>    
@@ -168,7 +169,7 @@
                                                 {{ aux }}
                                     </option>
                                 </select>
-                                <div *ngIf="submitted && formsRegistra.controls['validaDepartamento'].errors" class="invalid">
+                                <div *ngIf="submitted && formsRegistraProveedor.controls['validaDepartamento'].errors" class="invalid">
                                     <ul>
                                         <li> El Departamento es obligatorio</li>    
                                     </ul>
@@ -182,13 +183,17 @@
                                                 {{ aux }}
                                             </option>
                                         </select>
-                                        <div *ngIf="submitted && formsRegistra.controls['validaProvincia'].errors"
+                                        <div *ngIf="submitted && formsRegistraProveedor.controls['validaProvincia'].errors"
                                             class="invalid">
                                             <ul>
                                                 <li>La provincia es obligatoria</li>
                                             </ul>
                                         </div>
                                     </div>
+
+
+                                    
+                    
 
                                     <div class="col-lg-4">
                                         <label for="id_reg_distrito">Distrito</label>
@@ -199,7 +204,7 @@
                                                 {{ aux.distrito }}
                                             </option>
                                         </select>
-                                        <div *ngIf="submitted && formsRegistra.controls['validaDistrito'].errors"
+                                        <div *ngIf="submitted && formsRegistraProveedor.controls['validaDistrito'].errors"
                                             class="invalid">
                                             <ul>
                                                 <li>El distrito es obligatorio</li>
@@ -213,7 +218,7 @@
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn_reg_cerrar" style="width: 100px;">Close</button>
                                 <div class="form-group text-center">
                                     <div class="col-lg-12">
-                                        <button id="id_reg_registra"  class="btn btn-success form-control"style="width: 100px;" [disabled]="submitted && formsRegistra.invalid">Registrar</button>
+                                        <button id="id_reg_registra"  class="btn btn-success form-control"style="width: 100px;"  [disabled]="submitted && this.formsRegistraProveedor.invalid" >Registrar</button>
                                     </div>
                                 </div>
                             </div>
@@ -239,16 +244,16 @@
                 </div>
                 <div class="modal-body">
 
-                    <form class="content" (ngSubmit)="actualiza()" [formGroup]="formsActualiza">
+                    <form class="content" (ngSubmit)="actualiza()" [formGroup]="formsActualizaProveedor">
                         <div class="submit-form">
                             <div class="row">
                                 <div class="col-lg-4">
-                                  <label for="id_act_razon">Razón Social</label>
+                                  <label for="id_act_razon">Razon Social</label>
                                   <input  formControlName="validaRazonsocial" [(ngModel)]="proveedor.razonsocial" type="text" placeholder="Ingrese el razon" class="form-control" name="razonsocial" id="id_act_razon" />
-                                  <div *ngIf="submitted && formsRegistra.controls['validaRazonsocial'].errors" class="invalid">       
+                                  <div *ngIf="submitted && formsActualizaProveedor.controls['validaRazonsocial'].errors" class="invalid">       
                                       <ul>
-                                          <li>La Razón social es obligatorio</li>    
-                                          <li>La Razón social es de 3 a 30 caracteres</li>    
+                                          <li>La Razon social es obligatorio</li>    
+                                          <li>La Razon social es de 3 a 30 caracteres</li>    
                                       </ul>
                                   </div>
                                </div>
@@ -256,7 +261,7 @@
                                <div class="col-lg-4">
                                   <label for="id_act_ruc">Ruc</label>
                                   <input  formControlName="validaRuc" [(ngModel)]="proveedor.ruc" type="text" placeholder="Ingrese el ruc" class="form-control" name="ruc" id="id_act_ruc" />
-                                  <div *ngIf="submitted && formsRegistra.controls['validaRuc'].errors" class="invalid">       
+                                  <div *ngIf="submitted && formsActualizaProveedor.controls['validaRuc'].errors" class="invalid">       
                                       <ul>
                                           <li>El ruc es obligatorio</li>    
                                           <li>El ruc  es de 11 digitos</li>    
@@ -266,29 +271,29 @@
                               </div>
                               <div class="row">
                                <div class="col-lg-4">
-                                  <label for="id_act_direccion">Dirección</label>
-                                  <input  formControlName="validaDireccion" [(ngModel)]="proveedor.direccion" type="text" placeholder="Ingrese Dirección" class="form-control" name="direccion" id="id_act_direccion" />
-                                  <div *ngIf="submitted && formsRegistra.controls['validaDireccion'].errors" class="invalid">       
+                                  <label for="id_act_direccion">Direccion</label>
+                                  <input  formControlName="validaDireccion" [(ngModel)]="proveedor.direccion" type="text" placeholder="Ingrese Direccion" class="form-control" name="direccion" id="id_act_direccion" />
+                                  <div *ngIf="submitted && formsActualizaProveedor.controls['validaDireccion'].errors" class="invalid">       
                                       <ul>
-                                          <li>La dirección es obligatorio</li>    
-                                          <li>La dirección es de 3 a 30 caracteres</li>    
+                                          <li>La direccion es obligatorio</li>    
+                                          <li>La direccion es de 3 a 30 caracteres</li>    
                                       </ul>
                                   </div>
                                </div>
                                <div class="col-lg-4">
-                                  <label for="id_act_telefono">Teléfono</label>
-                                  <input  formControlName="validaTelefono" [(ngModel)]="proveedor.telefono" type="text" placeholder="Ingrese Teléfono" class="form-control" name="telefono" id="id_act_telefono" />
-                                  <div *ngIf="submitted && formsRegistra.controls['validaTelefono'].errors" class="invalid">       
+                                  <label for="id_act_telefono">Telefono</label>
+                                  <input  formControlName="validaTelefono" [(ngModel)]="proveedor.telefono" type="text" placeholder="Ingrese Telefono" class="form-control" name="telefono" id="id_act_telefono" />
+                                  <div *ngIf="submitted && formsActualizaProveedor.controls['validaTelefono'].errors" class="invalid">       
                                       <ul>
-                                          <li>El Teléfono es obligatorio</li>    
-                                          <li>El Teléfono es de 6 digitos</li>    
+                                          <li>El Telefono es obligatorio</li>    
+                                          <li>El Telefono es de 6 digitos</li>    
                                       </ul>
                                   </div>
                                </div>
                                <div class="col-lg-4">
                                   <label for="id_act_celular">Celular</label>
                                   <input  formControlName="validaCelular" [(ngModel)]="proveedor.celular" type="text" placeholder="Ingrese Celular" class="form-control" name="celular" id="id_act_celular" />
-                                  <div *ngIf="submitted && formsRegistra.controls['validaCelular'].errors" class="invalid">       
+                                  <div *ngIf="submitted && formsActualizaProveedor.controls['validaCelular'].errors" class="invalid">       
                                       <ul>
                                           <li>El Celular es obligatorio</li>    
                                           <li>El Celular es de 9 digitos</li>    
@@ -298,7 +303,7 @@
                                <div class="col-lg-4">
                                   <label for="id_act_contacto">Contacto</label>
                                   <input  formControlName="validacontacto" [(ngModel)]="proveedor.contacto" type="text" placeholder="Ingrese Contacto" class="form-control" name="contacto" id="id_act_contacto" />
-                                  <div *ngIf="submitted && formsRegistra.controls['validacontacto'].errors" class="invalid">       
+                                  <div *ngIf="submitted && formsActualizaProveedor.controls['validacontacto'].errors" class="invalid">       
                                       <ul>
                                           <li>El Contacto es obligatorio</li>    
                                           <li>El Contacto es de 3 a 30 caracteres</li>    
@@ -317,7 +322,7 @@
                                         <option value="0"> Inactivo </option>
                                     </select>
 
-                                    <div *ngIf="submitted && formsRegistra.controls['validaEstado'].errors"
+                                    <div *ngIf="submitted && formsActualizaProveedor.controls['validaEstado'].errors"
                                         class="invalid">
                                         <ul>
                                             <li>El estado es obligatorio</li>
@@ -336,7 +341,7 @@
                                                     {{ aux }}
                                         </option>
                                     </select>
-                                    <div *ngIf="submitted && formsRegistra.controls['validaDepartamento'].errors" class="invalid">
+                                    <div *ngIf="submitted && formsActualizaProveedor.controls['validaDepartamento'].errors" class="invalid">
                                         <ul>
                                             <li> El Departamento es obligatorio</li>    
                                         </ul>
@@ -350,7 +355,7 @@
                                                     {{ aux }}
                                                 </option>
                                             </select>
-                                            <div *ngIf="submitted && formsRegistra.controls['validaProvincia'].errors"
+                                            <div *ngIf="submitted && formsActualizaProveedor.controls['validaProvincia'].errors"
                                                 class="invalid">
                                                 <ul>
                                                     <li>La provincia es obligatoria</li>
@@ -367,7 +372,7 @@
                                                     {{ aux.distrito }}
                                                 </option>
                                             </select>
-                                            <div *ngIf="submitted && formsRegistra.controls['validaDistrito'].errors"
+                                            <div *ngIf="submitted && formsActualizaProveedor.controls['validaDistrito'].errors"
                                                 class="invalid">
                                                 <ul>
                                                     <li>El distrito es obligatorio</li>
