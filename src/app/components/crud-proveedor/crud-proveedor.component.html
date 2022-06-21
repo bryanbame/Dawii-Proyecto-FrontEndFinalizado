@@ -27,10 +27,10 @@
                         <thead>
                             <tr>
                                 <th style="width: 5%">#</th>
-                                <th style="width: 30%">Razon social</th>
+                                <th style="width: 30%">Razón social</th>
                                 <th style="width: 20%">Ruc</th>
-                                <th style="width: 20%">Direccion</th>
-                                <th style="width: 20%">Telefono</th>
+                                <th style="width: 20%">Dirección</th>
+                                <th style="width: 20%">Teléfono</th>
                                 <th style="width: 20%">Celular</th>
                                 <th style="width: 20%">Contacto</th>
                                 <th style="width: 20%">Estado</th>
@@ -96,12 +96,12 @@
 
                             <div class="row">
                               <div class="col-lg-4">
-                                <label for="id_reg_razon">Razon Social</label>
-                                <input  formControlName="validaRazonsocial" [(ngModel)]="proveedor.razonsocial" type="text" placeholder="Ingrese el razon" class="form-control" name="razonsocial" id="id_reg_razon" />
+                                <label for="id_reg_razon">Razón Social</label>
+                                <input  formControlName="validaRazonsocial" [(ngModel)]="proveedor.razonsocial" type="text" placeholder="Ingrese la razón social" class="form-control" name="razonsocial" id="id_reg_razon" />
                                 <div *ngIf="submitted && formsRegistraProveedor.controls['validaRazonsocial'].errors" class="invalid">       
                                     <ul>
-                                        <li>La Razon social es obligatorio</li>    
-                                        <li>La Razon social es de 3 a 30 caracteres</li>    
+                                        <li>La Razón social es obligatorio</li>    
+                                        <li>La Razón social es de 3 a 30 caracteres</li>    
                                     </ul>
                                 </div>
                              </div>
@@ -112,29 +112,29 @@
                                 <div *ngIf="submitted && formsRegistraProveedor.controls['validaRuc'].errors" class="invalid">       
                                     <ul>
                                         <li>El ruc es obligatorio</li>    
-                                        <li>El ruc  es de 11 digitos</li>    
+                                        <li>El ruc  es de 11 dígitos</li>    
                                     </ul>
                                 </div>
                              </div>
                             </div>
                             <div class="row">
                              <div class="col-lg-4">
-                                <label for="id_reg_direccion">Direccion</label>
-                                <input  formControlName="validaDireccion" [(ngModel)]="proveedor.direccion" type="text" placeholder="Ingrese Direccion" class="form-control" name="direccion" id="id_reg_direccion" />
+                                <label for="id_reg_direccion">Dirección</label>
+                                <input  formControlName="validaDireccion" [(ngModel)]="proveedor.direccion" type="text" placeholder="Ingrese la Dirección" class="form-control" name="direccion" id="id_reg_direccion" />
                                 <div *ngIf="submitted && formsRegistraProveedor.controls['validaDireccion'].errors" class="invalid">       
                                     <ul>
-                                        <li>La direccion es obligatorio</li>    
-                                        <li>La direccion es de 3 a 30 caracteres</li>    
+                                        <li>La dirección es obligatorio</li>    
+                                        <li>La dirección es de 3 a 30 caracteres</li>    
                                     </ul>
                                 </div>
                              </div>
                              <div class="col-lg-4">
-                                <label for="id_reg_telefono">Telefono</label>
-                                <input  formControlName="validaTelefono" [(ngModel)]="proveedor.telefono" type="text" placeholder="Ingrese Telefono" class="form-control" name="telefono" id="id_reg_telefono" />
+                                <label for="id_reg_telefono">Teléfono</label>
+                                <input  formControlName="validaTelefono" [(ngModel)]="proveedor.telefono" type="text" placeholder="Ingrese el Teléfono" class="form-control" name="telefono" id="id_reg_telefono" />
                                 <div *ngIf="submitted && formsRegistraProveedor.controls['validaTelefono'].errors" class="invalid">       
                                     <ul>
-                                        <li>El Telefono es obligatorio</li>    
-                                        <li>El Telefono es de 6 digitos</li>    
+                                        <li>El Teléfono es obligatorio</li>    
+                                        <li>El Teléfono es de 6 dígitos</li>    
                                     </ul>
                                 </div>
                              </div>
@@ -144,13 +144,13 @@
                                 <div *ngIf="submitted && formsRegistraProveedor.controls['validaCelular'].errors" class="invalid">       
                                     <ul>
                                         <li>El Celular es obligatorio</li>    
-                                        <li>El Celular es de 9 digitos</li>    
+                                        <li>El Celular es de 9 dígitos</li>    
                                     </ul>
                                 </div>
                              </div>
                              <div class="col-lg-4">
                                 <label for="id_reg_contacto">Contacto</label>
-                                <input  formControlName="validacontacto" [(ngModel)]="proveedor.contacto" type="text" placeholder="Ingrese Contacto" class="form-control" name="contacto" id="id_reg_contacto" />
+                                <input  formControlName="validacontacto" [(ngModel)]="proveedor.contacto" type="text" placeholder="Ingrese el Contacto" class="form-control" name="contacto" id="id_reg_contacto" />
                                 <div *ngIf="submitted && formsRegistraProveedor.controls['validacontacto'].errors" class="invalid">       
                                     <ul>
                                         <li>El Contacto es obligatorio</li>    
@@ -248,12 +248,12 @@
                         <div class="submit-form">
                             <div class="row">
                                 <div class="col-lg-4">
-                                  <label for="id_act_razon">Razon Social</label>
-                                  <input  formControlName="validaRazonsocial" [(ngModel)]="proveedor.razonsocial" type="text" placeholder="Ingrese el razon" class="form-control" name="razonsocial" id="id_act_razon" />
+                                  <label for="id_act_razon">Razón Social</label>
+                                  <input  formControlName="validaRazonsocial" [(ngModel)]="proveedor.razonsocial" type="text" placeholder="Ingrese la razón" class="form-control" name="razonsocial" id="id_act_razon" />
                                   <div *ngIf="submitted && formsActualizaProveedor.controls['validaRazonsocial'].errors" class="invalid">       
                                       <ul>
-                                          <li>La Razon social es obligatorio</li>    
-                                          <li>La Razon social es de 3 a 30 caracteres</li>    
+                                          <li>La Razón social es obligatorio</li>    
+                                          <li>La Razón social es de 3 a 30 caracteres</li>    
                                       </ul>
                                   </div>
                                </div>
@@ -264,29 +264,29 @@
                                   <div *ngIf="submitted && formsActualizaProveedor.controls['validaRuc'].errors" class="invalid">       
                                       <ul>
                                           <li>El ruc es obligatorio</li>    
-                                          <li>El ruc  es de 11 digitos</li>    
+                                          <li>El ruc  es de 11 dígitos</li>    
                                       </ul>
                                   </div>
                                </div>
                               </div>
                               <div class="row">
                                <div class="col-lg-4">
-                                  <label for="id_act_direccion">Direccion</label>
-                                  <input  formControlName="validaDireccion" [(ngModel)]="proveedor.direccion" type="text" placeholder="Ingrese Direccion" class="form-control" name="direccion" id="id_act_direccion" />
+                                  <label for="id_act_direccion">Dirección</label>
+                                  <input  formControlName="validaDireccion" [(ngModel)]="proveedor.direccion" type="text" placeholder="Ingrese la Dirección" class="form-control" name="direccion" id="id_act_direccion" />
                                   <div *ngIf="submitted && formsActualizaProveedor.controls['validaDireccion'].errors" class="invalid">       
                                       <ul>
-                                          <li>La direccion es obligatorio</li>    
-                                          <li>La direccion es de 3 a 30 caracteres</li>    
+                                          <li>La dirección es obligatorio</li>    
+                                          <li>La dirección es de 3 a 30 caracteres</li>    
                                       </ul>
                                   </div>
                                </div>
                                <div class="col-lg-4">
-                                  <label for="id_act_telefono">Telefono</label>
-                                  <input  formControlName="validaTelefono" [(ngModel)]="proveedor.telefono" type="text" placeholder="Ingrese Telefono" class="form-control" name="telefono" id="id_act_telefono" />
+                                  <label for="id_act_telefono">Teléfono</label>
+                                  <input  formControlName="validaTelefono" [(ngModel)]="proveedor.telefono" type="text" placeholder="Ingrese el Teléfono" class="form-control" name="telefono" id="id_act_telefono" />
                                   <div *ngIf="submitted && formsActualizaProveedor.controls['validaTelefono'].errors" class="invalid">       
                                       <ul>
-                                          <li>El Telefono es obligatorio</li>    
-                                          <li>El Telefono es de 6 digitos</li>    
+                                          <li>El Teléfono es obligatorio</li>    
+                                          <li>El Teléfono es de 6 dígitos</li>    
                                       </ul>
                                   </div>
                                </div>
@@ -296,13 +296,13 @@
                                   <div *ngIf="submitted && formsActualizaProveedor.controls['validaCelular'].errors" class="invalid">       
                                       <ul>
                                           <li>El Celular es obligatorio</li>    
-                                          <li>El Celular es de 9 digitos</li>    
+                                          <li>El Celular es de 9 dígitos</li>    
                                       </ul>
                                   </div>
                                </div>
                                <div class="col-lg-4">
                                   <label for="id_act_contacto">Contacto</label>
-                                  <input  formControlName="validacontacto" [(ngModel)]="proveedor.contacto" type="text" placeholder="Ingrese Contacto" class="form-control" name="contacto" id="id_act_contacto" />
+                                  <input  formControlName="validacontacto" [(ngModel)]="proveedor.contacto" type="text" placeholder="Ingrese el Contacto" class="form-control" name="contacto" id="id_act_contacto" />
                                   <div *ngIf="submitted && formsActualizaProveedor.controls['validacontacto'].errors" class="invalid">       
                                       <ul>
                                           <li>El Contacto es obligatorio</li>    
