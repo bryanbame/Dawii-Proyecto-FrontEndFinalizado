@@ -1,1 +1,238 @@
-<p>crud-reclamo works!</p>
+<div>
+    
+    
+        
+
+         <div class="row">
+
+                <div class="col-lg-12">
+
+                <h2 style="font-weight: bold;">Crud de Reclamo</h2>
+
+                </div>
+
+        </div>
+
+        <div class="row" style="margin-top: 4%">
+
+                
+
+                <div class="col-lg-5">
+                    <label for="fechaRegistro" style="font-size: 20px;" >Descripción del reclamo:</label>
+                    <input [(ngModel)] = "filtro" placeholder="Ingrese la descripción" type="text" class="form-control" name="fechaRegistro" id="fechaRegistro" />
+
+                </div>
+                <div class="col-md-2">
+                    <button type="button" class="btn btn-primary" id="id_btn_filtrar" style="width: 150px" (click)="consulta()">Filtrar</button>
+                </div>
+                <div class="col-md-2">
+                    <button  type="button" data-toggle='modal' data-target="#idModalRegistrar" class='btn btn-success' style="width: 150px">Registrar</button>
+                </div>
+
+         </div>
+
+         <div class="row" style="margin-top: 1%">
+
+
+           
+
+           
+            
+        </div >
+         <div class="row" style="margin-top: 3%">
+
+                <table class="table table-hover table-striped table-bordered">
+
+                    <thead>
+
+                        <tr style="font-weight: bold;font-size: 20px;text-align: center;">
+
+                            <th>#</th>                            
+                            <th>Descripción</th>
+                            <th>Fecha de Registro</th>
+                            <th>Cliente</th>
+                            <th>Tipo de Reclamo</th>
+                            <th>Estado</th>
+                            <th></th>
+                            <th></th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+                        <tr *ngFor= "let aux of listaReclamos" style="text-align: center;">
+                            <td>{{ aux.idReclamo }}</td>
+                            <td>{{ aux.descripcion }}</td>
+                            <td>{{ aux.fechaRegistro }}</td>
+                            <td>{{ aux.cliente?.nombres }} {{ aux.cliente?.apellidos}} </td>
+                            <td>{{ aux.tipoReclamo?.descripcion }} </td>
+                            <td>{{ aux.estado==1 ? "Activo":"Inactivo"}}</td>
+                            <td>
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="idEstado_{{ aux.idReclamo }}" [checked]="aux.estado==1?true:false" name="estado" (change)="actualizaEstado(aux)" />         
+                                    <label class="custom-control-label" for="idEstado_{{ aux.idReclamo }}"></label>
+                                </div>    
+                            </td>
+                            <td><button type="button" style="width: 90px" class="btn btn-primary btn-sm"  data-toggle="modal" data-target="#idModalActualizar" (click)="buscar(aux)" >Editar</button></td>
+                        </tr>
+                            
+                    </tbody>
+
+                </table>
+
+         </div>
+
+        </div>
+     
+    
+
+    <div class="modal fade"  id="idModalRegistrar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+        <div class="modal-dialog" style="max-width: 70%;">
+            <div class="modal-content" >
+
+                <div class="modal-header">
+                    <h2 class="modal-title" id="exampleModalLabel">Nuevo Reclamo</h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                
+                <div class="modal-body">
+                    <form class="content" (ngSubmit)="registra()">
+                        <div class="submit-form">
+                            
+                            <div class="row">
+
+                                <div class="col-lg-10">
+                
+                                    <label for="descripcion" style="font-size: 20px;font-weight: bold;">Descripción:</label>
+                
+                                    <input [(ngModel)]="reclamo.descripcion" placeholder="Ingrese Descripción de su Reclamo" type="text" class="form-control" name="descripcion" id="descripcion" [(ngModel)]="reclamo.descripcion"  />
+                                </div>
+                            </div>      
+                
+                        <div class="row" style="margin-top: 3%">
+                            <div class="col-lg-5">
+                                <label style="font-size: 20px;font-weight: bold;" for="cliente">Cliente:</label>
+                
+                                <select  [(ngModel)]="reclamo.cliente!.idCliente" id="cliente" name="cliente" class="form-control" [(ngModel)]="reclamo.cliente!.idCliente" >
+                
+                                    <option value="0"> [Seleccione] </option>   
+                                    <option *ngFor="let obj of clientes" value="{{obj.idCliente}}">
+                                        {{obj.nombres+" "+obj.apellidos}}
+                                    </option>
+                                </select>
+                
+                            </div>
+                
+                            <div class="col-lg-5">
+                
+                                <label style="font-size: 20px;font-weight: bold;" for="tipoReclamo">Tipo de Reclamo:</label>
+                
+                                <select [(ngModel)]="reclamo.tipoReclamo!.idTipoReclamo" id="tipoReclamo" name="tipoReclamo" class="form-control" [(ngModel)]="reclamo.tipoReclamo!.idTipoReclamo" >
+                
+                                    <option value="0"> [Seleccione] </option>   
+                                    <option *ngFor="let obj of tipoReclamos" value="{{obj.idTipoReclamo}}">
+                                        {{obj.descripcion}}
+                                    </option>
+                                </select>
+                
+                            </div>
+                
+                        </div>
+
+                        </div> 
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" id="btn_reg_cerrar" style="width: 100px; font-size: 18px;font-weight: bold;color: white;" data-dismiss="modal">Close</button>
+                            <button  id="id_reg_registra"  class="btn btn-success form-control" style="width: 100px; font-size: 18px;font-weight: bold;color: white;">Registrar</button>
+                            
+                        </div>
+
+               
+                    </form>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="idModalActualizar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="max-width: 88%;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="exampleModalLabel">Actualización de Reclamo </h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                         <span aria-hidden="true">&times;</span>
+                     </button>
+                </div>
+                <div class="modal-body">
+
+                    <form class="content" (ngSubmit)="actualiza()">
+                        <div class="submit-form" >
+
+                            <div  class="row">
+                                <div class="col-lg-8">
+                                    <label for="id_act_descripcion" style="font-size: 20px;font-weight: bold;">Descripción:</label>
+                                    <input [(ngModel)]="reclamo.descripcion" type="text" placeholder="Ingrese el nombre" class="form-control" name="descripcion" id="id_act_descripcion" />
+                                </div>
+                                <div class="col-lg-4">
+                                    <label for="id_act_fecha" style="font-size: 20px;font-weight: bold;">Fecha Registro:</label>
+                                    <input [(ngModel)]="reclamo.fechaRegistro" type="text" readonly class="form-control" name="fechaRegistro" id="id_act_fecha" />
+                                </div>
+    
+                                <div class="col-lg-2" style="margin-top: 3%;">
+                                    <label for="id_act_estado" style="font-size: 20px;font-weight: bold;">Estado:</label>
+                                    <select [(ngModel)]="reclamo.estado" id="id_act_estado" name="estado" class="form-control">
+                                        <option value="-1"> [Seleccione] </option>
+                                        <option value="1"> Activo </option>
+                                        <option value="0"> Inactivo </option>
+                                    </select>
+                                </div>
+
+                                <div class="col-lg-4" style="margin-top: 3%;">
+                                    <label for="id_reg_cliente" style="font-size: 20px;font-weight: bold;">Cliente:</label>
+                                    <select [(ngModel)]="reclamo.cliente!.idCliente" id="id_reg_cliente" name="cliente" class="form-control">
+                                        <option value="-1"> [Seleccione] </option>
+                                        <option *ngFor="let aux of clientes" value="{{ aux.idCliente }}"> 
+                                                    {{ aux.nombres }} {{ aux.apellidos }}
+                                        </option>
+                                    </select>
+                                </div>
+
+                                <div class="col-lg-4" style="margin-top: 3%;">
+                                    <label for="id_reg_tipo" style="font-size: 20px;font-weight: bold;">Tipo Reclamo:</label>
+                                    <select [(ngModel)]="reclamo.tipoReclamo!.idTipoReclamo" id="id_reg_tipo" name="tipoReclamo" class="form-control">
+                                        <option value="-1"> [Seleccione] </option>
+                                        <option *ngFor="let aux of tipoReclamos" value="{{ aux.idTipoReclamo }}"> 
+                                                    {{ aux.descripcion }}
+                                        </option>
+                                    </select>
+                                </div>
+
+                            </div>
+    
+    
+
+
+
+                        </div>
+
+                        <div class="modal-footer">
+                            <button style="width: 100px;font-size: 18px;font-weight: bold;color: white;" type="button" class="btn btn-danger" data-dismiss="modal" id="btn_act_cerrar">Cerrar</button>
+                            <div class="form-group text-center">
+                                <div class="col-lg-12">
+                                    <button style="width: 108px;font-size: 18px;font-weight: bold;color: white;"  id="id_act_actualiza" class="btn btn-success form-control">Actualizar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
