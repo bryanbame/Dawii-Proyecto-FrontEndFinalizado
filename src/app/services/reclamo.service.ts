@@ -6,6 +6,7 @@ import { AppSettings } from '../app.settings';
 
 const baseUrlUtil = AppSettings.API_ENDPOINT+ '/util';
 const baseUrlReclamo = AppSettings.API_ENDPOINT+ '/reclamo';
+const baseUrl = AppSettings.API_ENDPOINT+ '/crudReclamo';
 
 
 @Injectable({
@@ -37,4 +38,16 @@ export class ReclamoService {
     .set("estado", est);
     return this.http.get(baseUrlReclamo +"/ConsultaReclamoConParametros",{params})
   }
+
+  listaReclamo(filtro:string):Observable<Reclamo[]> {
+    return this.http.get<Reclamo[]>(baseUrl + "/listaReclamoPorDescripcioLike/"+ filtro);
+}  
+
+registraReclamo(obj: Reclamo): Observable<any>{
+    return this.http.post(baseUrl+ "/registraReclamo", obj);
+}
+
+actualizaReclamo(obj: Reclamo): Observable<any>{
+  return this.http.put(baseUrl + "/actualizaReclamo", obj);
+}
 }
