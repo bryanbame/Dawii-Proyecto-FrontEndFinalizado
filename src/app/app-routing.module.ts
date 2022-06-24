@@ -26,6 +26,8 @@ import { ConsultaPedidoComponent } from './components/consulta-pedido/consulta-p
 import { ConsultaComprobanteComponent } from './components/consulta-comprobante/consulta-comprobante.component';
 import { TransaccionPedidoComponent } from './components/transaccion-pedido/transaccion-pedido.component';
 import { TransaccionComprobanteComponent } from './components/transaccion-comprobante/transaccion-comprobante.component';
+import { IndexComponent } from './index/index.component';
+import { LoginComponent } from './auth/login.component';
 
 
 
@@ -58,6 +60,10 @@ const routes: Routes = [
 
   {path:"registraPedido", component:TransaccionPedidoComponent},
   {path:"registraComprobante", component:TransaccionComprobanteComponent},
+
+  { path: '', component: IndexComponent },
+  { path: 'login', component: LoginComponent },
+  { path: '**', redirectTo: '', pathMatch: 'full' }
 
 ];
 

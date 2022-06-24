@@ -38,5 +38,4 @@ export class RegistraMarcaComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }
