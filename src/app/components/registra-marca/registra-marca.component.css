@@ -4,12 +4,7 @@
 form{
     margin: auto;
 }
-div{
-    background-color: white;
-    /*background-color: black;*/
-    /*colocarle un id al div*/
-    /*border-radius: 10px;*/
-}
+
 label{
     color: black;
 }
